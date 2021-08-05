@@ -22,12 +22,45 @@ shinyUI(fluidPage(
                         "Number of bins:",
                         min = 1,
                         max = 50,
-                        value = 30)
+                        value = 30),
+            
+            # Input: Select a file ----
+            fileInput("file1", "Choose Deck File",
+                      multiple = TRUE,
+                      accept = c("text/csv",
+                                 "text/comma-separated-values,text/plain",
+                                 ".csv",
+                                 ".txt")),
+            
+            # Horizontal line ----
+            tags$hr(),
+            
+            # Input: Select User ----
+            radioButtons("user", "User",
+                         choices = c(Alex = "Alex",
+                                     Nick = "Nick",
+                                     Tom = "Tom",
+                                     Cam = "Cam")
+                         ),
+            
+            # Input: Select Date ----
+            dateInput("deck_date", "Date",
+                      value= Sys.Date()),
+            
+            # Horizontal line ----
+            tags$hr(),
+            
+            # Input: Select number of rows to display ----
+            radioButtons("disp", "Display",
+                         choices = c(Head = "head",
+                                     All = "all"),
+                         selected = "head")
         ),
 
         # Show a plot of the generated distribution
         mainPanel(
-            plotOutput("distPlot")
+            plotOutput("distPlot"),
+            tableOutput("upload")
         )
     )
 ))

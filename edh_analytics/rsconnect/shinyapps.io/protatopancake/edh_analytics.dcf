@@ -1,0 +1,13 @@
+name: edh_analytics
+title: edh_analytics
+username:
+account: protatopancake
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4456765
+bundleId: 4890119
+url: https://protatopancake.shinyapps.io/edh_analytics/
+when: 1628138810.95173
+lastSyncTime: 1628138810.95173
+asMultiple: FALSE
+asStatic: FALSE
