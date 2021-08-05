@@ -28,7 +28,7 @@ rsconnect::setAccountInfo(name='protatopancake', token='2F63FE44A51ECB6A18F42C27
 #     #httr_oauth_cache=TRUE
 # )
 gs4_auth(cache=".secrets", email=TRUE)
-ss <- gs4_get('https://docs.google.com/spreadsheets/d/1Z-YTXKaRtEXrp3GI20atOcF_438XTbE_NWgvM9JGLVM/edit#gid=0')
+ss <- gs4_get('https://docs.google.com/spreadsheets/d/1HN6snP_JzjjzM_0WBCwLznj10ouMIxW-mEXt0hYBefE/edit#gid=1571747905')
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
