@@ -26,7 +26,7 @@ shinyUI(fluidPage(
             
             # Input: Select a file ----
             fileInput("deckfile", "Choose Deck File",
-                      multiple = TRUE,
+                      multiple = FALSE,
                       accept = c("text/csv",
                                  "text/comma-separated-values,text/plain",
                                  ".csv",

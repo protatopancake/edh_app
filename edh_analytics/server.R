@@ -57,7 +57,8 @@ shinyServer(function(input, output) {
                        commander = input$commander,
                        date = as.character(input$deck_date),
                        player = input$user,
-                       result = input$result)
+                       result = input$result,
+                       deckname = input$deckfile$name)
             df <- sheet_append(ss,df_new, sheet = input$user)
             return(head(df_new)) 
         })
