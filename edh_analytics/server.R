@@ -29,7 +29,7 @@ rsconnect::setAccountInfo(name='protatopancake', token='2F63FE44A51ECB6A18F42C27
 gs4_auth(cache=".secrets", email=TRUE)
 ss <- gs4_get('https://docs.google.com/spreadsheets/d/1Z-YTXKaRtEXrp3GI20atOcF_438XTbE_NWgvM9JGLVM/edit#gid=0')
 
-1# Define server logic required to draw a histogram
+# Define server logic required to draw a histogram
 shinyServer(function(input, output) {
 
     output$distPlot <- renderPlot({
@@ -46,10 +46,14 @@ shinyServer(function(input, output) {
     output$upload <- renderTable({
         
         req(input$deckfile)
-        df_old <- read_sheet(ss, sheet = input$user)
+        #df_old <- read_sheet(ss, sheet = input$user)
         df_new <- read.csv(input$file1$datapath, header=FALSE, col.names = c("card_name"), sep = '\t')
-        sheet <- sheet_append(ss, data= df, sheet = input$user)
+        #sheet_append(ss, data= df_new, sheet = input$user)
+        sheet_append(ss,read.csv(input$file1$datapath, header=FALSE, col.names = c("card_name"), sep = '\t'), sheet = input$user)
         
     })
+    
+    output$table <- renderTable(head(read.csv(input$file1$datapath, header=FALSE, col.names = c("card_name"), sep = '\t')))
+    output$table2 <- renderTable(head(read_sheet(ss, sheet = input$user)))
 
 })
