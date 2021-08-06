@@ -1,4 +1,5 @@
 #Setup
+#install.packages(c('googlesheets4', 'dplyr', 'jsonlite', 'stringr', 'purrr', 'rsconnect'))
 #library(googledrive)
 library(googlesheets4)
 
