@@ -5,9 +5,16 @@ account: protatopancake
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 4456765
+<<<<<<< HEAD
 bundleId: 4890119
 url: https://protatopancake.shinyapps.io/edh_analytics/
 when: 1628138810.95173
 lastSyncTime: 1628138810.95173
+=======
+bundleId: 4892413
+url: https://protatopancake.shinyapps.io/edh_analytics/
+when: 1628188083.50134
+lastSyncTime: 1628188083.50134
+>>>>>>> bb3dba6ea06c87bbb7fb560407acdb81d65df692
 asMultiple: FALSE
 asStatic: FALSE
