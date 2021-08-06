@@ -51,16 +51,33 @@ shinyServer(function(input, output) {
             return()
         isolate({
             required <- req(input$deckfile)
+            scry <- readRDS("scryfall.rds")
             df_new <- read.csv(input$deckfile$datapath, header=FALSE, col.names = c("card_name"), sep = '\t') %>%
                 mutate(count = gsub(" .*","", card_name),
+                       #remove card count, keep name
                        card_name = gsub("^\\S* ","", card_name),
+                       #Remove text including "/" from double faced cards for joining. Ex fire//ice -> fire
+                       #Keep both, just in case
+                       name = sub("\\/.*", "", card_name),
                        commander = input$commander,
                        date = as.character(input$deck_date),
                        player = input$user,
                        result = input$result,
-                       deckname = input$deckfile$name)
+                       deckname = input$deckfile$name) %>%
+                left_join(scry, by = c("name" = "name"))
             df <- sheet_append(ss,df_new, sheet = input$user)
-            return(head(df_new)) 
+            return(df_new %>%
+                       head() %>%
+                       select(count,
+                              card_name,
+                              commander,
+                              date,
+                              player,
+                              result,
+                              deckname,
+                              mana_cost,
+                              cmc,
+                              type_line))
         })
         
 
